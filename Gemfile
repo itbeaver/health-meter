@@ -9,6 +9,7 @@ gem 'pg'
 gem 'paper_trail'
 # Use devise for flexible authentication
 gem 'devise'
+gem 'bootstrap-sass', '~> 3.3.6'
 # Use simple_form instead form_for
 gem 'simple_form'
 # Use SCSS for stylesheets
