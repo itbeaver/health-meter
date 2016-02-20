@@ -10,6 +10,7 @@
     <th>diastolic_pressure</th>
     <th></th>
     <th></th>
+    <th></th>
   </tr>
   </thead>
   <tbody>
@@ -21,6 +22,7 @@
         <td><%= vital.heart_rate %></td>
         <td><%= vital.systolic_blood_pressure %></td>
         <td><%= vital.diastolic_pressure %></td>
+        <td><%= link_to 'Show vital parameters', vital_parameter_path(vital) %></td>
         <td><%= link_to 'Edit vital', edit_vital_parameter_path(vital) %></td>
         <td><%= link_to 'Destroy vital', vital_parameter_path(vital),
                         method: :delete,

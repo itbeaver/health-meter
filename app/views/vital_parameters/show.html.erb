@@ -7,4 +7,12 @@
   <%= @vital_parameter.systolic_blood_pressure %>
   <%= @vital_parameter.diastolic_pressure %>
 </p>
+<p>
+  <label>Your health parameters</label>
+  Vegetative index = <%= @vital_parameter.calculate_vegetative_index %><br />
+  Endurance factor = <%= @vital_parameter.calculate_endurance_factor %><br />
+  Blood circulation = <%= @vital_parameter.calculate_blood_circulation %><br />
+  Robinson index = <%= @vital_parameter.calculate_robinson_index %><br />
+  Physical condition = <%= @vital_parameter.calculate_physical_condition %>
+</p>
 <%= link_to 'All vital parameters', vital_parameters_path %>
