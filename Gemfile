@@ -5,6 +5,8 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.5.1'
 # Use Postgresql as the database for Active Record
 gem 'pg'
+# Use PaperTrial to track changes to your models
+gem 'paper_trail'
 # Use simple_form instead form_for
 gem 'simple_form'
 # Use SCSS for stylesheets
