@@ -1,4 +1,5 @@
 class VitalParameter < ActiveRecord::Base
+  belongs_to :user
 
   def calculate_vegetative_index
     (1 - diastolic_pressure / heart_rate) * 100

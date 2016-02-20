@@ -2,6 +2,7 @@
 <table class="table table-hover">
   <thead>
   <tr>
+    <th>user</th>
     <th>age</th>
     <th>height</th>
     <th>weight</th>
@@ -16,6 +17,7 @@
   <tbody>
   <% @vital_parameters.each do |vital| %>
       <tr>
+        <td><%= current_user.email %></td>
         <td><%= vital.age %></td>
         <td><%= vital.height %></td>
         <td><%= vital.weight %></td>
