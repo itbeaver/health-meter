@@ -42,7 +42,7 @@ class VitalParametersController < ApplicationController
 
   private
   def vital_params
-    params.require(:vital_parameter).permit(:age, :height, :weight, :heart_rate,
+    params.require(:vital_parameter).permit(:gender, :age, :height, :weight, :heart_rate,
                                    :systolic_blood_pressure, :diastolic_pressure)
   end
 

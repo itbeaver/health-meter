@@ -5,7 +5,7 @@ class VitalParameter < ActiveRecord::Base
             :systolic_blood_pressure, :diastolic_pressure, presence: true
 
   def calculate_vegetative_index
-    (1 - diastolic_pressure / heart_rate) * 100
+    (1 - diastolic_pressure.to_f / heart_rate) * 100
   end
 
   def calculate_endurance_factor
