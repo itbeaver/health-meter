@@ -15,7 +15,6 @@ class VitalParametersController < ApplicationController
 
     if @vital_parameter.save
       session[:token] = @vital_parameter.token
-      puts session[:token]
       redirect_to @vital_parameter, notice: 'Vital parameters was successfully created.'
     else
       render 'new'
@@ -38,6 +37,7 @@ class VitalParametersController < ApplicationController
 
   def destroy
     @vital_parameter.destroy
+    session[:token] = nil
 
     redirect_to vital_parameters_path
   end

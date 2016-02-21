@@ -1,11 +1,11 @@
 <p>
-  <label>Health info</label>
-  <%= @vital_parameter.age %>
-  <%= @vital_parameter.height %>
-  <%= @vital_parameter.weight %>
-  <%= @vital_parameter.heart_rate %>
-  <%= @vital_parameter.systolic_blood_pressure %>
-  <%= @vital_parameter.diastolic_pressure %>
+  <label>Your data</label>
+  <labe>Age:</labe> <%= @vital_parameter.age %><br />
+  <labe>Height</labe> <%= @vital_parameter.height %><br />
+  <labe>Weight:</labe> <%= @vital_parameter.weight %><br />
+  <labe>Heart rate:</labe> <%= @vital_parameter.heart_rate %><br />
+  <labe>Systolic blood pressure:</labe> <%= @vital_parameter.systolic_blood_pressure %><br />
+  <labe>Diastolic blood pressure:</labe> <%= @vital_parameter.diastolic_pressure %>
 </p>
 <p>
   <label>Your health parameters</label><br />
@@ -14,5 +14,71 @@
   Blood circulation = <%= @vital_parameter.calculate_blood_circulation %><br />
   Robinson index = <%= @vital_parameter.calculate_robinson_index %><br />
   Physical condition = <%= @vital_parameter.calculate_physical_condition %>
+</p>
+<p>
+  <label>Health results</label><br />
+  <span>Your gender: </span><b><%= @vital_parameter.gender %></b><br />
+  <span>By index Cerdo you have: </span>
+  <% if @vital_parameter.calculate_vegetative_index <= -30 %>
+    <span><b>expressed parasimpatikotoniya</b></span>
+  <% elsif @vital_parameter.calculate_vegetative_index <= -16 || @vital_parameter.calculate_vegetative_index < -30 %>
+    <span><b>parasimpatikotoniya</b></span>
+  <% elsif @vital_parameter.calculate_vegetative_index <= -15 || @vital_parameter.calculate_vegetative_index < 15 %>
+    <span><b>balanced sympathicotonia and parasimpatikotoniya effects</b></span>
+  <% elsif @vital_parameter.calculate_vegetative_index > 16 || @vital_parameter.calculate_vegetative_index <= 30 %>
+    <span><b>sympathicotonia</b></span>
+  <% else %>
+    <span><b>expressed sympathicotonia</b></span>
+  <% end %>
+
+  <br /><span>By endurance factor you have: </span>
+  <span><b><%= @vital_parameter.calculate_endurance_factor %></b> (Standard index = 16 standard unit)</span>
+
+  <br /><span>By coefficient of blood circulation you have: </span>
+  <% if @vital_parameter.calculate_blood_circulation >= 2600 %>
+    <span><b>very bad. norm coefficient of blood circulation = 2600</b></span>
+  <% else %>
+    <span><b>very good</b></span>
+  <% end %>
+
+  <br /><span>By Robinson index you have: </span>
+  <% if @vital_parameter.calculate_robinson_index >= 111 %>
+    <span><b>low</b></span>
+  <% elsif @vital_parameter.calculate_robinson_index >= 95 && @vital_parameter.calculate_robinson_index <=110 %>
+    <span><b>below the average</b></span>
+  <% elsif @vital_parameter.calculate_robinson_index >= 85 && @vital_parameter.calculate_robinson_index <=94 %>
+    <span><b>average</b></span>
+  <% elsif @vital_parameter.calculate_robinson_index >= 70 && @vital_parameter.calculate_robinson_index <=84 %>
+    <span><b>above the average</b></span>
+  <% else %>
+    <span><b>high</b></span>
+  <% end %>
+
+  <br /><span>By physical condition you have: </span>
+  <% if @vital_parameter.gender == "Female" %>
+    <% if @vital_parameter.calculate_physical_condition >= 0.157 && @vital_parameter.calculate_physical_condition <= 0.260 %>
+      <span><b>low</b></span>
+    <% elsif @vital_parameter.calculate_physical_condition >= 0.261 && @vital_parameter.calculate_physical_condition <= 0.365 %>
+      <span><b>below the average</b></span>
+    <% elsif @vital_parameter.calculate_physical_condition >= 0.366 && @vital_parameter.calculate_physical_condition <= 0.475 %>
+      <span><b>average</b></span>
+    <% elsif @vital_parameter.calculate_physical_condition >= 0.476 && @vital_parameter.calculate_physical_condition <= 0.575 %>
+      <span><b>above the average</b></span>
+    <% elsif @vital_parameter.calculate_physical_condition >= 0.576 %>
+      <span><b>high</b></span>
+    <% end %>
+  <% else %>
+    <% if @vital_parameter.calculate_physical_condition >= 0.225 && @vital_parameter.calculate_physical_condition <= 0.375 %>
+      <span><b>low</b></span>
+    <% elsif @vital_parameter.calculate_physical_condition >= 0.376 && @vital_parameter.calculate_physical_condition <= 0.525 %>
+      <span><b>below the average</b></span>
+    <% elsif @vital_parameter.calculate_physical_condition >= 0.526 && @vital_parameter.calculate_physical_condition <= 0.675 %>
+      <span><b>average</b></span>
+    <% elsif @vital_parameter.calculate_physical_condition >= 0.676 && @vital_parameter.calculate_physical_condition <= 0.825 %>
+      <span><b>above the average</b></span>
+    <% elsif @vital_parameter.calculate_physical_condition >= 0.826 %>
+      <span><b>high</b></span>
+    <% end %>
+  <% end %>
 </p>
 <%= link_to 'All vital parameters', vital_parameters_path %>
