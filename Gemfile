@@ -14,6 +14,10 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'adminlte-rails'
 # Use simple_form instead form_for
 gem 'simple_form'
+# Use for Simple Rails app configuration
+gem 'figaro'
+# Use for OmniAuth Twitter with Devise
+gem 'omniauth-twitter'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
