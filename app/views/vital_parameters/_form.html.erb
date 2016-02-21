@@ -1,9 +1,36 @@
 <%= simple_form_for vital_parameter do |f| %>
-  <%= f.input :age, collection: 6..100, prompt: "Select your age", selected: 25 %>
-  <%= f.input :height %>
-  <%= f.input :weight %>
-  <%= f.input :heart_rate %>
-  <%= f.input :systolic_blood_pressure %>
-  <%= f.input :diastolic_pressure %>
-  <%= f.button :submit, 'Submit' %>
+  <div class="row">
+    <div class="col-xs-3">
+      <%= f.input :gender, priority: ["Female"], collection: ["Male", "Female"] %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-2">
+      <%= f.input :age, collection: 6..100, prompt: "Select your age", selected: 25 %>
+    </div>
+    <div class="col-xs-2">
+      <%= f.input :height %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-2">
+      <%= f.input :weight %>
+    </div>
+    <div class="col-xs-2">
+      <%= f.input :heart_rate %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-2">
+      <%= f.input :systolic_blood_pressure %>
+    </div>
+    <div class="col-xs-2">
+      <%= f.input :diastolic_pressure %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-2">
+      <%= f.button :submit, 'Submit' %>
+    </div>
+  </div>
 <% end %>
