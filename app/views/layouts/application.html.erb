@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>HealthMeter</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-
-<%= yield %>
-<p id="notice"><%= notice %></p>
-
-</body>
+  <head>
+    <title>HealthMeter</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <%= render "shared/menu" if user_signed_in? %>
+      <div class="container-fluid">
+        <div class="main-container">
+          <p id="notice"><%= notice %></p>
+          <p class="alert"><%= alert %></p>
+          <%= yield %>
+        </div>
+      </div>
+  </body>
 </html>

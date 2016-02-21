@@ -1,4 +1,8 @@
 class VitalParameter < ActiveRecord::Base
+  belongs_to :user
+
+  validates :age, :height, :weight, :heart_rate,
+            :systolic_blood_pressure, :diastolic_pressure, presence: true
 
   def calculate_vegetative_index
     (1 - diastolic_pressure / heart_rate) * 100

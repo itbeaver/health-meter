@@ -1,5 +1,5 @@
 <%= simple_form_for vital_parameter do |f| %>
-  <%= f.input :age %>
+  <%= f.input :age, collection: 6..100, prompt: "Select your age", selected: 25 %>
   <%= f.input :height %>
   <%= f.input :weight %>
   <%= f.input :heart_rate %>
