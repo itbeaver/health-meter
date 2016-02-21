@@ -14,6 +14,8 @@ class VitalParametersController < ApplicationController
     @vital_parameter = VitalParameter.new(vital_params)
 
     if @vital_parameter.save
+      session[:token] = @vital_parameter.token
+      puts session[:token]
       redirect_to @vital_parameter, notice: 'Vital parameters was successfully created.'
     else
       render 'new'
@@ -43,7 +45,7 @@ class VitalParametersController < ApplicationController
   private
   def vital_params
     params.require(:vital_parameter).permit(:gender, :age, :height, :weight, :heart_rate,
-                                   :systolic_blood_pressure, :diastolic_pressure)
+                                   :systolic_blood_pressure, :diastolic_pressure, :token)
   end
 
   def find_vital_parameter
