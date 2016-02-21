@@ -1,5 +1,5 @@
 class VitalParametersController < ApplicationController
-  before_action :authenticate_user!, except: [:new]
+  before_action :authenticate_user!, except: [:new, :create, :show]
   before_action :find_vital_parameter, only: [:show, :edit, :update, :destroy]
 
   def index
