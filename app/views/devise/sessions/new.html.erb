@@ -4,14 +4,23 @@
   <div class="form-inputs">
     <div class="row">
       <div class="col-xs-3">
-        <%= f.input :email, required: false, autofocus: true %>
+        <%= f.input :username, required: false, autofocus: true %>
       </div>
     </div>
+    <% if f.object.email_required? %>
+    <div class="row">
+      <div class="col-xs-3">
+        <%= f.input :email, required: false %>
+      </div>
+    </div>
+    <% end %>
+    <% if f.object.password_required? %>
     <div class="row">
       <div class="col-xs-3">
         <%= f.input :password, required: false %>
       </div>
     </div>
+    <% end %>
     <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
   </div>
 
