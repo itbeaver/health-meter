@@ -1,37 +1,43 @@
-<h1>Health</h1>
-<table class="table table-striped">
-  <thead>
-  <tr>
-    <th>gender</th>
-    <th>age</th>
-    <th>height</th>
-    <th>weight</th>
-    <th>heart_rate</th>
-    <th>systolic_blood_pressure</th>
-    <th>diastolic_pressure</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-  </thead>
-  <tbody>
-  <% @vital_parameters.each do |vital| %>
+<div class="box">
+  <div class="box-header">
+    <h3 class="box-title">Health</h3>
+  </div><!-- /.box-header -->
+  <div class="box-body no-padding">
+    <table class="table table-striped">
+      <thead>
       <tr>
-        <td><%= vital.gender %></td>
-        <td><%= vital.age %></td>
-        <td><%= vital.height %></td>
-        <td><%= vital.weight %></td>
-        <td><%= vital.heart_rate %></td>
-        <td><%= vital.systolic_blood_pressure %></td>
-        <td><%= vital.diastolic_pressure %></td>
-        <td><%= link_to 'Show results', vital_parameter_path(vital) %></td>
-        <td><%= link_to 'Edit', edit_vital_parameter_path(vital) %></td>
-        <td><%= link_to 'Destroy', vital_parameter_path(vital),
-                        method: :delete,
-                        data: { confirm: "Are you sure?" } %>
-        </td>
+        <th style="width: 20px">gender</th>
+        <th>age</th>
+        <th>height</th>
+        <th>weight</th>
+        <th style="width: 20px">heart_rate</th>
+        <th style="width: 30px">systolic_blood_pressure</th>
+        <th>diastolic_pressure</th>
+        <th></th>
+        <th></th>
+        <th></th>
       </tr>
-  <% end %>
-  </tbody>
-</table>
+      </thead>
+      <tbody>
+      <% @vital_parameters.each do |vital| %>
+          <tr>
+            <td><%= vital.gender %></td>
+            <td><%= vital.age %></td>
+            <td><%= vital.height %></td>
+            <td><%= vital.weight %></td>
+            <td><%= vital.heart_rate %></td>
+            <td><%= vital.systolic_blood_pressure %></td>
+            <td><%= vital.diastolic_pressure %></td>
+            <td><%= link_to 'Show results', vital_parameter_path(vital) %></td>
+            <td><%= link_to 'Edit', edit_vital_parameter_path(vital) %></td>
+            <td><%= link_to 'Destroy', vital_parameter_path(vital),
+                            method: :delete,
+                            data: { confirm: "Are you sure?" } %>
+            </td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
 
