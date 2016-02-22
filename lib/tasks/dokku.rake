@@ -1,8 +1,8 @@
 namespace :dokku do
   @app_name_production = 'healthmeter'
-  @app_domain_production = '169.53.129.22'
+  @app_domain_production = 'umksb4029fb7.memoris.koding.io'
   @app_name_stage = 'healthmeter'
-  @app_domain_stage = '169.53.129.22'
+  @app_domain_stage = 'umksb4029fb7.memoris.koding.io'
 
   if Rails.env.production?
     @app_name = @app_name_production
@@ -89,6 +89,6 @@ namespace :dokku do
   end
 
   def run_in_dokku(command = 'logs')
-    system "ssh -t dokku@#{@app_domain} dokku " + command
+    system "ssh -t dokku@#{@app_domain} " + command
   end
 end
