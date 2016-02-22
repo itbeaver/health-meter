@@ -1,7 +1,14 @@
 <section class="content">
   <div class="callout callout-info">
-<h3>Hello user! Please, enter your health parameters</h3>
-<%= render "form", vital_parameter: @vital_parameter %>
-<%= link_to 'All vital parameters', vital_parameters_path %>
-</div>
+    <% if !user_signed_in?%>
+      <div>
+        <i class="fa fa-fw fa-twitter"></i>
+        <%= link_to 'Login with Twitter', '/users/auth/twitter' %><br />
+      </div>
+    <% end %>
+    <h3>Hello user! This project allow to input your health parameters (age, weight, heart rate, pressure, ...)
+        and get results by different medical tests about your health.</h3>
+    <h3>Please, enter your health parameters</h3>
+    <%= render "form", vital_parameter: @vital_parameter %>
+  </div>
 </section>

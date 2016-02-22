@@ -13,6 +13,7 @@
         <th style="width: 20px">heart_rate</th>
         <th style="width: 30px">systolic_blood_pressure</th>
         <th>diastolic_pressure</th>
+        <th>date</th>
         <th></th>
         <th></th>
         <th></th>
@@ -28,6 +29,7 @@
             <td><%= vital.heart_rate %></td>
             <td><%= vital.systolic_blood_pressure %></td>
             <td><%= vital.diastolic_pressure %></td>
+            <td><%= vital.created_at.strftime('%d/%m/%Y') %></td>
             <td><%= link_to 'Show results', vital_parameter_path(vital) %></td>
             <td><%= link_to 'Edit', edit_vital_parameter_path(vital) %></td>
             <td><%= link_to 'Destroy', vital_parameter_path(vital),
