@@ -89,6 +89,6 @@ namespace :dokku do
   end
 
   def run_in_dokku(command = 'logs')
-    system "ssh -t dokku@#{@app_domain} dokku " + command
+    system "ssh -t dokku@#{@app_domain} " + command
   end
 end

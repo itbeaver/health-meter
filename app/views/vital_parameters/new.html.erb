@@ -5,5 +5,10 @@
   </div>
 <% end %>
 <h3>Vital parameters</h3>
-<%= render "form", vital_parameter: @vital_parameter %>
-<%= link_to 'All vital parameters', vital_parameters_path %>
+<section class="content">
+  <div class="callout callout-info">
+    <h3>Hello user! Please, enter your health parameters</h3>
+    <%= render "form", vital_parameter: @vital_parameter %>
+    <%= link_to 'All vital parameters', vital_parameters_path %>
+  </div>
+</section>
