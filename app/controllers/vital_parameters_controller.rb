@@ -38,6 +38,7 @@ class VitalParametersController < ApplicationController
 
   def destroy
     @vital_parameter.destroy
+    session[:token] = nil
 
     redirect_to vital_parameters_path
   end
